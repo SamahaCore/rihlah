@@ -2,11 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/navbar/simple-nav.astro';
 import Footer from '../components/footer/simple-footer.astro';
-import Hero from '../components/programs-sections/program-hero.astro';
-import Offer from '../components/programs-sections/offer.astro';
-import Register from '../components/programs-sections/register.astro';
-import Gallery from '../components/programs-sections/gallery.astro';
-import JoinTeam from '../components/about-sections/join-team.astro';
+import ProgramsHero from '../components/programs-sections/program-hero.astro';
+import ProgramHeroSection from '../components/programs-sections/program-hero-section.astro';
+import MailingList from '../components/contact-us-sections/mailing-list.astro';
 import '../styles/global.css';
 import TopSocials from '../components/navbar/top-socials.astro';
 import LogoImage from '../assets/Rihlah Logo.svg';
@@ -16,7 +14,7 @@ import LogoNameWhite from '../assets/Logo Wordmark White.svg';
 import Container from '../components/layout/container.astro';
 ---
 
-<Layout title="Rihlah - Welcome">
+<Layout title="Rihlah - Programs">
     <TopSocials />
     <Navbar>
       <div slot="logo" class="flex gap-4">
@@ -25,22 +23,51 @@ import Container from '../components/layout/container.astro';
       </div>
     </Navbar>
   
-    <Container >
-      <main class="items-center justify-center py-4">
-        <Hero />
-        <Offer />
-      </main>
-    </Container>
-
-    <Register />
-    <Gallery />
+    <ProgramsHero />
+    
+    <ProgramHeroSection 
+        title="Weekly Youth Halaqas"
+        description={`<p>Our weekly programs include:</p>
+        <ul class="list-disc list-inside space-y-2 ml-4">
+            <li><strong>Girls' Halaqa</strong> – A sisters-only circle focused on nurturing faith, character, and sisterhood through meaningful discussions and reflections.</li>
+            <li><strong>Boys' Halaqa at PMA</strong> – A brothers-only space designed for young men to learn, ask questions, and grow in a supportive environment.</li>
+            <li><strong>Soulful Pages</strong> – A weekly book club dedicated to reading and reflecting on selected works that deepen our understanding of Islam, spirituality, and the Muslim experience.</li>
+        </ul>
+        <p>Each halaqa is an opportunity to connect, learn, and be inspired — leaving with renewed purpose for the week ahead.</p>`}
+        imageAlt="Weekly Youth Halaqas"
+        buttonText="Learn More"
+        buttonLink="/programs-sub1"
+        textFirst={true}
+    />
+    
+    <ProgramHeroSection 
+        title="Islamic Studies Workshops"
+        description={`<p>Join us for in-depth Islamic Studies Workshops designed to deepen your understanding of traditional Islamic scholarship. These workshops cover various topics including Quranic studies, Hadith, Islamic jurisprudence, and spiritual development.</p>
+        <p>Our workshops are led by qualified scholars and provide an engaging environment for learning, discussion, and reflection. Whether you're a beginner or looking to advance your knowledge, these workshops offer valuable insights into the rich tradition of Islamic learning.</p>`}
+        imageAlt="Islamic Studies Workshops"
+        buttonText="Learn More"
+        buttonLink="/programs-sub2"
+        textFirst={false}
+    />
+    
+    <ProgramHeroSection 
+        title="Annual Rihlah Conference"
+        description={`<p>Our Annual Rihlah Conference brings together scholars, youth, and families for dynamic and engaging experiences that enrich our learning and spiritual journey.</p>
+        <p>This flagship event features renowned speakers, interactive sessions, and opportunities for community building. Join hundreds of participants in this transformative gathering that combines knowledge, reflection, and meaningful connection.</p>`}
+        imageAlt="Annual Rihlah Conference"
+        buttonText="Learn More"
+        buttonLink="/programs-sub3"
+        textFirst={true}
+    />
+    
     <Container>
-      <JoinTeam />
+        <MailingList />
     </Container>
+    
     <Footer>
       <div slot="logo" class="flex gap-4">
         <img slot="logo" src={LogoImageWhite.src} alt="Logo" class="w-18 h-18" />
         <img slot="logo" src={LogoNameWhite.src} alt="Logo" class="py-2" />
       </div>
     </Footer>
-  </Layout>
+</Layout>
